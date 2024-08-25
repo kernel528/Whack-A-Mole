@@ -5,6 +5,7 @@ A local game development studio has decided to create a new game that's based on
 
 * `main` branch passes all 32 test cases, with a commented out setEventListeners(); in the startGame() function.  
 * `feat/us06-add-sounds` branch adds sound support.  `Hit` sound when whacking a mole.  `backgroundMusic` for music during gameplay.
+* `feat/us06-update-styles` branch adds some custom styling.
 
 The game designers have asked you to come up with a computer version of this game. They have provided some source code, but it still needs to be completed. You are encouraged to come up with an original visual design for this game or even change the theme. The game designers expect you to use the JavaScript, HTML, and CSS skills that you've learned in this program to give the game a unique feel.
 
