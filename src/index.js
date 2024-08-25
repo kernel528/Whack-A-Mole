@@ -276,7 +276,7 @@ function setDuration(duration) {
 function stopGame(){
   // stopAudio(song);  //optional
   clearInterval(timer);
-  // clearScore();
+  clearScore();
   return "game stopped";
 }
 
@@ -291,7 +291,7 @@ function startGame(){
   setDelay("hard");
   showUp();
   startTimer();
-  setEventListeners();
+  // setEventListeners();
   return "game started";
 }
 
