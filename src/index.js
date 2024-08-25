@@ -4,14 +4,14 @@ const startButton = document.querySelector('#start');
 const score = document.querySelector("#score");
 const timerDisplay = document.querySelector("#timer");
 // Load sounds
-const hitSound = new Audio('sounds/hit.mp3');
-const moleSong = new Audio('sounds/molesong.mp3');
+// const hitSound = new Audio('sounds/hit.mp3');
+// const moleSong = new Audio('sounds/molesong.mp3');
 
 let time = 0;
 let timer;
 let lastHole = 0;
 let points = 0;
-let difficulty = "easy";
+let difficulty = "hard";
 
 /**
  * Generates a random integer within a range.
@@ -43,7 +43,7 @@ function randomInteger(min, max) {
  */
 function setDelay(difficulty) {
   if (difficulty === "easy") {
-    return 5000;
+    return 1500;
   } else if (difficulty === "normal") {
     return 1000;
   } else if (difficulty === "hard") {
@@ -176,6 +176,9 @@ function updateScore() {
   const score = document.querySelector("#score");
   score.textContent = points;
 
+  // Play hit sound
+  // hitSound.play();
+
   // Return points
   return points;
 }
@@ -241,6 +244,16 @@ function whack(event) {
 }
 
 /**
+ *
+ * Function to play the miss sound
+ *
+**/
+function handleMiss() {
+  // Play miss sound
+  missSound.play();
+}
+
+/**
 *
 * Adds the 'click' event listeners to the moles. See the instructions
 * for an example on how to set event listeners using a for loop.
@@ -291,6 +304,7 @@ function startGame(){
   setDelay("hard");
   showUp();
   startTimer();
+  // setEventListeners();
   return "game started";
 }
 
