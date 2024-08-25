@@ -42,18 +42,35 @@ function randomInteger(min, max) {
  * setDelay("hard") //> returns 856 (returns a random number between 600 and 1200).
  *
  */
+// function setDelay(difficulty) {
+//   if (difficulty === "super easy") {
+//     return 5000;
+//   } else if (difficulty === "easy") {
+//     return 1500;
+//   } else if (difficulty === "normal") {
+//     return 1000;
+//   } else if (difficulty === "hard") {
+//     return randomInteger(600, 1200);
+//   } else {
+//     throw new Error("Invalid difficulty level. Please choose 'easy', 'normal', or 'hard'.");
+//   }
+// }
+/**
+ * Updated code to be more concise.
+*/
 function setDelay(difficulty) {
-  if (difficulty === "super easy") {
-    return 5000;
-  } else if (difficulty === "easy") {
-    return 1500;
-  } else if (difficulty === "normal") {
-    return 1000;
-  } else if (difficulty === "hard") {
-    return randomInteger(600, 1200);
-  } else {
-    throw new Error("Invalid difficulty level. Please choose 'easy', 'normal', or 'hard'.");
-  }
+ const delays = {
+  "super easy": 5000,
+  "easy": 1500,
+  "normal": 1000,
+  "hard": randomInteger(600, 1200),
+ };
+
+ if (delays.hasOwnProperty(difficulty)) {
+  return delays[difficulty];
+ } else {
+  throw new Error("Invalid difficulty level. Please choose 'easy', 'normal', or 'hard'.");
+ }
 }
 
 /**
@@ -101,7 +118,6 @@ function chooseHole(holes) {
 *
 */
 function gameOver() {
-  // TODO: Write your code here
   if(time > 0){
     let timeoutId = showUp();
     return timeoutId;
@@ -179,6 +195,9 @@ function updateScore() {
   const score = document.querySelector("#score");
   score.textContent = points;
 
+  // Play hit sound
+  // hitSound.play();
+
   // Return points
   return points;
 }
@@ -244,12 +263,22 @@ function whack(event) {
 }
 
 /**
+ *
+ * Function to play the miss sound
+ *
+**/
+function handleMiss() {
+  // Play miss sound
+  missSound.play();
+}
+
+/**
 *
 * Adds the 'click' event listeners to the moles. See the instructions
 * for an example on how to set event listeners using a for loop.
 */
 function setEventListeners() {
-  // TODO: Write your code here --> Not sure test is passing properly.  Need to return to this...
+  // TODO: Not sure test is passing properly.  Need to return to this...
   // forEach mole add the whack event handler when a player clicks on the mole.
   moles.forEach(
       mole => mole.addEventListener('click', whack)
