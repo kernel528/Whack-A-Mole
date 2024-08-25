@@ -276,7 +276,7 @@ function setDuration(duration) {
 function stopGame(){
   // stopAudio(song);  //optional
   clearInterval(timer);
-  clearScore();
+  // clearScore();
   return "game stopped";
 }
 
