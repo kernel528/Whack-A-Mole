@@ -3,9 +3,6 @@ const moles = document.querySelectorAll('.mole');
 const startButton = document.querySelector('#start');
 const score = document.querySelector("#score");
 const timerDisplay = document.querySelector("#timer");
-// Load sounds
-const hitSound = new Audio('sounds/hit.mp3');
-const moleSong = new Audio('sounds/molesong.mp3');
 
 let time = 0;
 let timer;
@@ -13,6 +10,11 @@ let lastHole = 0;
 let points = 0;
 // let difficulty = "super easy";
 let difficulty = "hard";
+
+// Load sounds - feat/us06-add-sounds
+const hitSound = new Audio('sounds/hit.mp3');
+const backgroundMusic = new Audio('sounds/molesong.mp3');
+backgroundMusic.loop = true;
 
 /**
  * Generates a random integer within a range.
@@ -196,7 +198,7 @@ function updateScore() {
   score.textContent = points;
 
   // Play hit sound
-  hitSound.play();
+  hitSound.play(); // BREAK: Enabling this works, but the npm test case fails.
 
   // Return points
   return points;
@@ -309,6 +311,8 @@ function stopGame(){
   // stopAudio(song);  //optional
   clearInterval(timer);
   clearScore();
+  backgroundMusic.pause(); // BREAK: Enabling this works, but US-04 updateScore and clearScore test cases fails.
+  backgroundMusic.currentTime = 0; // BREAK: Same as above
   return "game stopped";
 }
 
@@ -321,9 +325,10 @@ function stopGame(){
 function startGame(){
   setDuration(10);
   setDelay("hard");
+  backgroundMusic.play(); // BREAK: This introduced US-03:startGame() and gameOver() › should call showUp() when clicking the start button
   showUp();
   startTimer();
-  setEventListeners();
+  setEventListeners(); // Adding this is needed for actual functionality, but breaks US-04 whack updateScore for some reason.
   return "game started";
 }
 
