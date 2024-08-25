@@ -11,6 +11,7 @@ let time = 0;
 let timer;
 let lastHole = 0;
 let points = 0;
+// let difficulty = "super easy";
 let difficulty = "hard";
 
 /**
@@ -41,16 +42,32 @@ function randomInteger(min, max) {
  * setDelay("hard") //> returns 856 (returns a random number between 600 and 1200).
  *
  */
+// function setDelay(difficulty) {
+//   if (difficulty === "super easy") {
+//     return 5000;
+//   } else if (difficulty === "easy") {
+//     return 1500;
+//   } else if (difficulty === "normal") {
+//     return 1000;
+//   } else if (difficulty === "hard") {
+//     return randomInteger(600, 1200);
+//   } else {
+//     throw new Error("Invalid difficulty level. Please choose 'easy', 'normal', or 'hard'.");
+//   }
+// }
 function setDelay(difficulty) {
-  if (difficulty === "easy") {
-    return 1500;
-  } else if (difficulty === "normal") {
-    return 1000;
-  } else if (difficulty === "hard") {
-    return randomInteger(600, 1200);
-  } else {
-    throw new Error("Invalid difficulty level. Please choose 'easy', 'normal', or 'hard'.");
-  }
+ const delays = {
+  "super easy": 5000,
+  "easy": 1500,
+  "normal": 1000,
+  "hard": randomInteger(600, 1200),
+ };
+
+ if (delays.hasOwnProperty(difficulty)) {
+  return delays[difficulty];
+ } else {
+  throw new Error("Invalid difficulty level. Please choose 'easy', 'normal', or 'hard'.");
+ }
 }
 
 /**
@@ -304,7 +321,7 @@ function startGame(){
   setDelay("hard");
   showUp();
   startTimer();
-  // setEventListeners();
+  setEventListeners();
   return "game started";
 }
 
