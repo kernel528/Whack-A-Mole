@@ -11,7 +11,8 @@ let time = 0;
 let timer;
 let lastHole = 0;
 let points = 0;
-let difficulty = "easy";
+// let difficulty = "super easy";
+let difficulty = "hard";
 
 /**
  * Generates a random integer within a range.
@@ -42,8 +43,10 @@ function randomInteger(min, max) {
  *
  */
 function setDelay(difficulty) {
-  if (difficulty === "easy") {
+  if (difficulty === "super easy") {
     return 5000;
+  } else if (difficulty === "easy") {
+    return 1500;
   } else if (difficulty === "normal") {
     return 1000;
   } else if (difficulty === "hard") {
