@@ -196,7 +196,7 @@ function updateScore() {
   score.textContent = points;
 
   // Play hit sound
-  // hitSound.play();
+  hitSound.play();
 
   // Return points
   return points;
