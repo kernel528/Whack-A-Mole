@@ -4,8 +4,8 @@ const startButton = document.querySelector('#start');
 const score = document.querySelector("#score");
 const timerDisplay = document.querySelector("#timer");
 // Load sounds
-// const hitSound = new Audio('sounds/hit.mp3');
-// const moleSong = new Audio('sounds/molesong.mp3');
+const hitSound = new Audio('sounds/hit.mp3');
+const moleSong = new Audio('sounds/molesong.mp3');
 
 let time = 0;
 let timer;
@@ -55,6 +55,9 @@ function randomInteger(min, max) {
 //     throw new Error("Invalid difficulty level. Please choose 'easy', 'normal', or 'hard'.");
 //   }
 // }
+/**
+ * Updated code to be more concise.
+*/
 function setDelay(difficulty) {
  const delays = {
   "super easy": 5000,
@@ -115,7 +118,6 @@ function chooseHole(holes) {
 *
 */
 function gameOver() {
-  // TODO: Write your code here
   if(time > 0){
     let timeoutId = showUp();
     return timeoutId;
@@ -276,7 +278,7 @@ function handleMiss() {
 * for an example on how to set event listeners using a for loop.
 */
 function setEventListeners() {
-  // TODO: Write your code here --> Not sure test is passing properly.  Need to return to this...
+  // TODO: Not sure test is passing properly.  Need to return to this...
   // forEach mole add the whack event handler when a player clicks on the mole.
   moles.forEach(
       mole => mole.addEventListener('click', whack)
