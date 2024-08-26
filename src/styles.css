@@ -54,7 +54,7 @@ h2 {
   display: block;
   /*background: url("./assets/hole.png") bottom center no-repeat;*/
   /*background: url("https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/hole.png?raw=true") bottom center no-repeat;*/
-  background: url("https://github.com/kernel528/js-dev-final-capstone-starter-whack-a-mole/blob/feat/us06-update-style/assets/manhole.png?raw=true") bottom center no-repeat;
+  background: url("https://github.com/kernel528/js-dev-final-capstone-starter-whack-a-mole/blob/feat/us06-update-style/assets/pipe.png?raw=true") bottom center no-repeat;
   background-size:contain;
   content:'';
   width: 100%;
