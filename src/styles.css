@@ -10,6 +10,7 @@ html {
   z-index:0;
   overflow: hidden;
   display: flex; /* fix/bf02-revision-1 */
+  justify-content: center;
 }
 
 h1 {
@@ -31,6 +32,7 @@ h2 {
     /*text-align: center;*/
     /*font-size: 30px;*/
   /* fix/bf02-revision-1 */
+
   text-align: center;
   padding: 10px 20px;
   font-size: 20px;
