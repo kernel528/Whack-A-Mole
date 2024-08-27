@@ -9,6 +9,7 @@ html {
   background-size: cover;
   z-index:0;
   overflow: hidden;
+  display: flex; /* fix/bf02-revision-1 */
 }
 
 h1 {
@@ -29,6 +30,7 @@ h2 {
 #start {
     /*text-align: center;*/
     /*font-size: 30px;*/
+  /* fix/bf02-revision-1 */
   text-align: center;
   padding: 10px 20px;
   font-size: 20px;
@@ -54,9 +56,11 @@ h2 {
 }
 
 .hole {
-  flex: 1 0 33.33%;
-  overflow: hidden;
-  position: relative;
+  @media all and (min-width: 800px) {
+    flex: 1 0 33.33%;
+    overflow: hidden;
+    position: relative;
+  }
 }
 
 .hole:after {
