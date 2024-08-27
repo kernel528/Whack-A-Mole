@@ -310,7 +310,6 @@ function setDuration(duration) {
 function stopGame(){
   // stopAudio(song);  //optional
   clearInterval(timer);
-  clearScore();
   backgroundMusic.pause(); // BREAK: Enabling this works, but US-04 updateScore and clearScore test cases fails.
   backgroundMusic.currentTime = 0; // BREAK: Same as above
   return "game stopped";
@@ -323,6 +322,7 @@ function stopGame(){
 *
 */
 function startGame(){
+  clearScore();
   setDuration(10);
   setDelay("hard");
   backgroundMusic.play(); // BREAK: This introduced US-03:startGame() and gameOver() › should call showUp() when clicking the start button
