@@ -58,11 +58,9 @@ h2 {
 }
 
 .hole {
-  @media all and (min-width: 800px) {
     flex: 1 0 33.33%;
     overflow: hidden;
     position: relative;
-  }
 }
 
 .hole:after {
