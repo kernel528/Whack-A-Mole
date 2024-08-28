@@ -9,15 +9,15 @@ html {
   background-size: cover;
   z-index:0;
   overflow: hidden;
-  display: flex; /* fix/bf02-revision-1 */
+  /*display: flex; !* fix/bf02-revision-1 *!*/
   justify-content: center;
 }
 
 h1 {
-  display: flex;  /* fix/bf02-revision-2 */
-  flex-direction: column; /* fix/bf02-revision-2 */
-  align-items: center; /* fix/bf02-revision-2 */
-  justify-content: center; /* fix/bf02-revision-2 */
+  /*display: flex;  !* fix/bf02-revision-2 *!*/
+  /*flex-direction: column; !* fix/bf02-revision-2 *!*/
+  /*align-items: center; !* fix/bf02-revision-2 *!*/
+  /*justify-content: center; !* fix/bf02-revision-2 *!*/
   text-align: center;
   font-size: 50px; /* fix/bf02-revision-2 */
   /*font-size: 90px;*/
@@ -56,9 +56,9 @@ h2 {
 #start {
   /*text-align: center;*/
   /*font-size: 30px;*/
-  display: flex;  /* fix/bf02-revision-2 */
-  justify-content: center; /* fix/bf02-revision-2 */
-  align-items: center; /* fix/bf02-revision-2 */
+  /*display: flex;  !* fix/bf02-revision-2 *!*/
+  /*justify-content: center; !* fix/bf02-revision-2 *!*/
+  /*align-items: center; !* fix/bf02-revision-2 *!*/
   text-align: center;
   padding: 10px 20px;
   font-size: 20px;
