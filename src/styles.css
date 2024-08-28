@@ -116,5 +116,11 @@ h2 {
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     color: white;
     -webkit-text-stroke: 2px black;
+  },
+  .grid {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 600px;
   }
 }
