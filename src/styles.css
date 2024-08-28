@@ -13,9 +13,9 @@ html {
   justify-content: center;
 }
 
-#title {
-  font-size: 8vw;
-}
+/*#title {*/
+/*  font-size: 8vw;*/
+/*}*/
 
 h1 {
   /*display: flex;  !* fix/bf02-revision-2 *!*/
@@ -23,7 +23,7 @@ h1 {
   /*align-items: center; !* fix/bf02-revision-2 *!*/
   /*justify-content: center; !* fix/bf02-revision-2 *!*/
   text-align: center;
-  font-size: 50vw;
+  font-size: 8vw;
   font-family: "Comic Sans MS", "Comic Sans", cursive;
   color: white;
   -webkit-text-stroke: 2px black;
