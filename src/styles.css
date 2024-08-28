@@ -112,7 +112,7 @@ h2 {
 @media all and (min-width: 800px) {
   h1 {
     text-align: center;
-    font-size: 90px;
+    font-size: 75px;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     color: white;
     -webkit-text-stroke: 2px black;
