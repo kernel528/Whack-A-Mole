@@ -14,6 +14,7 @@ html {
 }
 
 h1 {
+  display: flex;  /* fix/bf02-revision-2 */
   text-align: center;
   font-size: 90px;
   font-family: "Comic Sans MS", "Comic Sans", cursive;
@@ -31,9 +32,9 @@ h2 {
 #start {
   /*text-align: center;*/
   /*font-size: 30px;*/
-
-  /* fix/bf02-revision-1 */
-  justify-content: center;
+  display: flex;  /* fix/bf02-revision-2 */
+  justify-content: center; /* fix/bf02-revision-2 */
+  align-items: center; /* fix/bf02-revision-2 */
   text-align: center;
   padding: 10px 20px;
   font-size: 20px;
@@ -67,8 +68,8 @@ h2 {
 .hole:after {
   display: block;
   /*background: url("./assets/hole.png") bottom center no-repeat;*/
-  background: url("https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/hole.png?raw=true") bottom center no-repeat;
-  /*background: url("https://github.com/kernel528/js-dev-final-capstone-starter-whack-a-mole/blob/feat/us06-update-style/assets/cp-computer.png?raw=true") bottom center no-repeat;*/
+  /*background: url("https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/hole.png?raw=true") bottom center no-repeat;*/
+  background: url("https://github.com/kernel528/js-dev-final-capstone-starter-whack-a-mole/blob/feat/us06-update-style/assets/cp-computer.png?raw=true") bottom center no-repeat;
   background-size:contain;
   content:'';
   width: 100%;
