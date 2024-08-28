@@ -15,8 +15,12 @@ html {
 
 h1 {
   display: flex;  /* fix/bf02-revision-2 */
+  flex-direction: column; /* fix/bf02-revision-2 */
+  align-items: center; /* fix/bf02-revision-2 */
+  justify-content: center; /* fix/bf02-revision-2 */
   text-align: center;
-  font-size: 90px;
+  font-size: 50px;
+  /*font-size: 90px;*/
   font-family: "Comic Sans MS", "Comic Sans", cursive;
   color: white;
   -webkit-text-stroke: 2px black;
@@ -70,14 +74,14 @@ h2 {
     color: white;
 }
 
-.grid {
-  width: 600px;
-  height: 400px;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  /*cursor: url('./assets/mallet.png'), pointer;*/
-}
+/*.grid {*/
+/*  width: 600px;*/
+/*  height: 400px;*/
+/*  display: flex;*/
+/*  flex-wrap: wrap;*/
+/*  margin: 0 auto;*/
+/*  !*cursor: url('./assets/mallet.png'), pointer;*!*/
+/*}*/
 
 .hole {
     flex: 1 0 33.33%;
