@@ -107,8 +107,8 @@ h2 {
   /*transform: scale(1.1);*/
 }
 
-@media all and (min-width: 600px) {
-  h1 {
+@media all and (min-width: 800px) {
+  h1 h2 #start {
     text-align: center;
     font-size: 90px;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
