@@ -13,6 +13,30 @@ html {
   justify-content: center;
 }
 
+/* fix/bf02-revision-2 */
+#title {
+  font-size: 3rem; /* Default size */
+}
+
+@media (max-width: 1200px) {
+  #title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  #title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  #title {
+    font-size: 1.5rem;
+  }
+}
+
+
 h1 {
   /*display: flex;  !* fix/bf02-revision-2 *!*/
   /*flex-direction: column; !* fix/bf02-revision-2 *!*/
