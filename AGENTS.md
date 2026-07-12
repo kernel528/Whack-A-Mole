@@ -3,7 +3,7 @@
 ## Start Here
 
 - Repo: `$HOME/Projects/Whack-A-Mole/`.
-- Durable project context: `$HOME/Projects/Engineering/projects/whack-a-mole/`.
+- Durable project context: `$HOME/Projects/Agentic_Engineering/projects/whack-a-mole/`.
 - Read first: `README.md`, then `src/index.js`, `test/solution.test.js`, and the Engineering `ai-handoff.md`.
 - Keep application code unchanged unless the user explicitly asks for code changes.
 
