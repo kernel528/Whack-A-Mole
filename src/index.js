@@ -1,8 +1,11 @@
+import packageMetadata from "../package.json";
+
 const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.mole');
 const startButton = document.querySelector('#start');
 const score = document.querySelector("#score");
 const timerDisplay = document.querySelector("#timer");
+document.querySelector("#version").textContent = packageMetadata.version;
 // Load sounds
 const hitSound = new Audio('sounds/hit.mp3');
 const moleSong = new Audio('sounds/molesong.mp3');
@@ -278,10 +281,12 @@ function handleMiss() {
 * for an example on how to set event listeners using a for loop.
 */
 function setEventListeners() {
-  // TODO: Not sure test is passing properly.  Need to return to this...
   // forEach mole add the whack event handler when a player clicks on the mole.
   moles.forEach(
-      mole => mole.addEventListener('click', whack)
+      mole => {
+        mole.removeEventListener('click', whack);
+        mole.addEventListener('click', whack);
+      }
   );
 
   // return moles
@@ -319,6 +324,7 @@ function stopGame(){
 *
 */
 function startGame(){
+  clearScore();
   setDuration(10);
   setDelay("hard");
   showUp();

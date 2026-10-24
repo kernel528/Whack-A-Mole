@@ -34,6 +34,13 @@ Go ahead and get started by following the installation steps below. You'll submi
 
 **Note:** It's not required to pass all the unit tests to complete this assignment but it is recommended that you use the tests to deliver a functional game and meet the rubric requirements.
 
+## Versioning
+
+The project follows Semantic Versioning. `package.json` is the source of truth;
+the game landing page reads the version from it at build time. Release history
+and summaries are recorded in [`VERSION.md`](VERSION.md). Bump the package and
+lockfile together, then add a matching entry to `VERSION.md` for each release.
+
 # Existing files
 
 |Folder/file path	|Description|

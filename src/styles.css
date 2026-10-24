@@ -1,6 +1,6 @@
 html {
   /*background: url('./assets/background.png') no-repeat center center fixed;*/
-  background: url('https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/background.png?raw=true') no-repeat center center fixed;
+  background: url('../assets/background.png') no-repeat center center fixed;
   box-sizing: border-box;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -16,6 +16,14 @@ h1 {
   font-family: "Comic Sans MS", "Comic Sans", cursive;
   color: white;
   -webkit-text-stroke: 2px black;
+}
+
+#app-version {
+  margin-top: -3.5em;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  -webkit-text-stroke: 0.25px black;
 }
 
 h2 {
@@ -52,7 +60,7 @@ h2 {
 .hole:after {
   display: block;
   /*background: url("./assets/hole.png") bottom center no-repeat;*/
-  background: url("https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/hole.png?raw=true") bottom center no-repeat;
+  background: url("../assets/hole.png") bottom center no-repeat;
   background-size:contain;
   content:'';
   width: 100%;
@@ -65,7 +73,7 @@ h2 {
 
 .mole {
   /*background:url('./assets/mole.png') bottom center no-repeat;*/
-  background:url('https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/mole.png?raw=true') bottom center no-repeat;
+  background:url('../assets/mole.png') bottom center no-repeat;
   background-size: 40%;
   position: absolute;
   top: 100%;
