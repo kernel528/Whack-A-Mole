@@ -1,5 +1,6 @@
 jest.setTimeout(30000);
 const baseURL = process.env.TEST_BASE_URL || "http://localhost:3000";
+const packageVersion = require("../package.json").version;
 
 const msgs = [];
 // Show logs from the page inside labeled container.
@@ -71,6 +72,11 @@ describe("US-01: Basic Game Structure", () => {
     expect(timer).not.toBeNull();
     expect(timer).toEqual(1);
   });
+
+  it("displays the current package version", async () => {
+    const version = await page.$eval("#version", (element) => element.textContent);
+    expect(version).toEqual(packageVersion);
+  });
 });
 
 describe("US-02: randomInteger()", () => {
@@ -129,11 +135,15 @@ describe("US-02: chooseHole()", () => {
 
 describe("US-03: toggleVisibility()", () => {
 
-  it("should use hole.classList.toggle to toggle the show class", async () => {
-    const toggle = await page.evaluate(() => {
-      return window.toggleVisibility.toString();
+  it("should toggle the show class on a hole", async () => {
+    const visibility = await page.evaluate(() => {
+      const hole = window.holes[8];
+      window.toggleVisibility(hole);
+      const shown = hole.classList.contains("show");
+      window.toggleVisibility(hole);
+      return { shown, hidden: !hole.classList.contains("show") };
     });
-    expect(toggle).toContain("hole.classList.toggle");
+    expect(visibility).toEqual({ shown: true, hidden: true });
   });
 
   it("should add the show class to a hole", async () => {
@@ -147,11 +157,20 @@ describe("US-03: toggleVisibility()", () => {
 
 describe("US-03: showUp()", () => {
 
-  it("should use the toggleVisibility(hole) function inside showAndHide()", async () => {
-    const showAndHide = await page.evaluate(() => {
-      return window.showAndHide.toString();
+  it("should show and hide a hole using showAndHide()", async () => {
+    const visibility = await page.evaluate(async () => {
+      const hole = window.holes[8];
+      window.setDuration(0);
+      const timeoutId = window.showAndHide(hole, 10);
+      const shown = hole.classList.contains("show");
+      await new Promise((resolve) => setTimeout(resolve, 20));
+      return {
+        shown,
+        hidden: !hole.classList.contains("show"),
+        timeoutId: typeof timeoutId,
+      };
     });
-    expect(showAndHide).toContain("toggleVisibility(hole)");
+    expect(visibility).toEqual({ shown: true, hidden: true, timeoutId: "number" });
   });
 
   it("should return an id corresponding to the setTimeout function", async () => {
@@ -291,7 +310,7 @@ describe("US-05: startTimer() and updateTimer()", () => {
     const startGamer = await page.evaluate(() => {
       window.startGame();
     });
-    await page.waitForTimeout(1000);
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     const time = await page.evaluate(() => {
       return document.querySelector("#timer").innerHTML;
     });
