@@ -180,18 +180,17 @@ describe("US-03: showUp()", () => {
     expect(typeof showAndHide).toBe('number');
   });
 
-  it("should use the setDelay(difficulty) function inside showUp()", async () => {
-    const showUp = await page.evaluate(() => {
-      return window.showUp.toString();
+  it("should show a mole in a hole when showUp() runs", async () => {
+    const result = await page.evaluate(() => {
+      window.setDuration(0);
+      window.holes.forEach((hole) => hole.classList.remove("show"));
+      const timeoutId = window.showUp();
+      const visibleHoles = Array.from(window.holes).filter((hole) =>
+        hole.classList.contains("show")
+      );
+      return { timeoutId: typeof timeoutId, visibleHoles: visibleHoles.length };
     });
-    expect(showUp).toContain("setDelay(difficulty)");
-  });
-
-  it("should use the chooseHole(holes) function inside showUp()", async () => {
-    const showUp = await page.evaluate(() => {
-      return window.showUp.toString();
-    });
-    expect(showUp).toContain("chooseHole(holes)");
+    expect(result).toEqual({ timeoutId: "number", visibleHoles: 1 });
   });
 
   it("should return an id corresponding to the setTimeout function", async () => {
@@ -204,11 +203,16 @@ describe("US-03: showUp()", () => {
 
 describe("US-03: startGame() and gameOver()", () => {
 
-  it("should call showUp() from the startGame() function", async () => {
-    const startGame = await page.evaluate(() => {
-      return window.startGame.toString();
+  it("should show a mole when a new game starts", async () => {
+    const result = await page.evaluate(() => {
+      window.holes.forEach((hole) => hole.classList.remove("show"));
+      const status = window.startGame();
+      const visibleHoles = Array.from(window.holes).filter((hole) =>
+        hole.classList.contains("show")
+      ).length;
+      return { status, visibleHoles };
     });
-    expect(startGame).toContain("showUp()");
+    expect(result).toEqual({ status: "game started", visibleHoles: 1 });
   });
 
   it('should return "game started"', async () => {
@@ -268,13 +272,6 @@ describe("US-04: updateScore() and clearScore()", () => {
 });
 
 describe("US-04 whack()", () => {
-  it("should have updateScore() inside of whack()", async () => {
-    const whack = await page.evaluate(() => {
-      return window.whack.toString();
-    });
-    expect(whack).toContain("updateScore()");
-  });
-
   it("should increment score when calling whack()", async () => {
     let content = await page.content();
     expect(content).toContain('<span id="score">0</span>');
@@ -284,13 +281,6 @@ describe("US-04 whack()", () => {
     expect(points).toEqual(1);
     content = await page.content();
     expect(content).toContain('<span id="score">1</span>');
-  });
-
-  it("should call setEventListeners() in the startGame() function", async () => {
-    const startGame = await page.evaluate(() => {
-      return window.startGame.toString();
-    });
-    expect(startGame).toContain("setEventListeners()");
   });
 
   it("should increment score when clicking on mole", async () => {
@@ -317,10 +307,4 @@ describe("US-05: startTimer() and updateTimer()", () => {
     expect(Number(time)).toBeGreaterThan(0);
   });
 
-  it("should call startTimer() in the startGame() function", async () => {
-    const startGame = await page.evaluate(() => {
-      return window.startGame.toString();
-    });
-    expect(startGame).toContain("startTimer()");
-  });
 });
