@@ -9,3 +9,4 @@ script. Keep this history updated when the package version changes.
 * 0.3.0 - Added the Whack-a-Hacker theme, custom styling, and optional audio assets.
 * 1.0.0 - Established the initial 1.0.0 package version for the completed capstone game.
 * 1.1.0 - Updated to patched Node.js 22.23.4, moved game images to local assets, migrated to Parcel 2, refreshed test dependencies, made tests choose an available port, and added a dynamic landing-page version display.
+* 2.0.0 - Major release recognizing the complete security and tooling modernization, reproducible Node runtime, automated free-port test workflow, and SemVer release process.
