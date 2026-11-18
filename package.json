@@ -9,7 +9,7 @@
     "jest": "^30.5.2",
     "jest-puppeteer": "^11.0.0",
     "parcel": "^2.16.4",
-    "puppeteer": "^25.16.0"
+    "puppeteer": "^25.17.0"
   },
   "scripts": {
     "start": "parcel index.html --port=3000",
